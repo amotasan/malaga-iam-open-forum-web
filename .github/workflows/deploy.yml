@@ -21,12 +21,13 @@ jobs:
           H: ${{ secrets.PLESK_HOST }}
           U: ${{ secrets.PLESK_USER }}
           K: ${{ secrets.PLESK_SSH_KEY }}
+          W: ${{ secrets.PLESK_PASSWORD }}
           P: ${{ secrets.PLESK_PORT }}
           T: ${{ secrets.PLESK_TARGET_DIR }}
         run: |
           first=$(printf '%s' "$K" | head -n1 | grep -oE 'BEGIN [A-Z ]+KEY' || echo 'sin cabecera BEGIN')
           lines=$(printf '%s' "$K" | wc -l)
-          echo "::notice title=Diagnostico secretos::HOST=${#H} USER=${#U} KEY=${#K} (lineas=$lines, $first) PORT=${#P} TARGET=${#T}"
+          echo "::notice title=Diagnostico secretos::HOST=${#H} USER=${#U} KEY=${#K} (lineas=$lines, $first) PASSWORD=${#W} PORT=${#P} TARGET=${#T}"
 
       - name: Copiar web al servidor por SCP
         uses: appleboy/scp-action@v0.1.7
@@ -34,6 +35,7 @@ jobs:
           host: ${{ secrets.PLESK_HOST }}
           username: ${{ secrets.PLESK_USER }}
           key: ${{ secrets.PLESK_SSH_KEY }}
+          password: ${{ secrets.PLESK_PASSWORD }}
           port: ${{ secrets.PLESK_PORT || 22 }}
           source: "index.html,img"
           target: ${{ secrets.PLESK_TARGET_DIR }}

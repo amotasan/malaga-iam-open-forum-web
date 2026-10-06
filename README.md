@@ -26,7 +26,8 @@ Secretos necesarios en **Settings → Secrets and variables → Actions**:
 |---|---|
 | `PLESK_HOST` | servidor Plesk (IP o nombre) |
 | `PLESK_USER` | usuario SSH del dominio |
-| `PLESK_SSH_KEY` | clave privada SSH (la pública debe estar en `~/.ssh/authorized_keys` del servidor) |
+| `PLESK_SSH_KEY` | clave privada SSH (recomendado; la pública debe estar en `~/.ssh/authorized_keys` del servidor) |
+| `PLESK_PASSWORD` | contraseña SSH, solo si no se usa clave |
 | `PLESK_PORT` | puerto SSH (opcional, 22 por defecto) |
 | `PLESK_TARGET_DIR` | carpeta raíz del sitio, p. ej. `/var/www/vhosts/malaga-iam.website/httpdocs` |
 
