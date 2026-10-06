@@ -1,4 +1,4 @@
-# Despliegue de https://malaga-iam.website en Plesk (Profesional Hosting)
+# Despliegue de https://malaga-iam.website en Plesk (Profesional Hosting) · SCP con clave o contraseña
 name: Deploy a Plesk (malaga-iam.website)
 
 on:
