@@ -16,9 +16,19 @@ const INSCRIPCION_URL = "";   // formulario de inscripción
 const LINKEDIN_URL = "";      // página de LinkedIn del foro
 ```
 
-## Publicar
+## Publicar en https://malaga-iam.website
 
-Sube `index.html` y `img/` a la raíz del dominio, o activa GitHub Pages (Settings → Pages → rama `main`, carpeta `/`).
+Cada push a `main` que cambie `index.html` o `img/` copia la web al servidor Plesk con GitHub Actions (`.github/workflows/deploy.yml`). También se puede lanzar a mano desde la pestaña **Actions → Deploy a Plesk → Run workflow**.
+
+Secretos necesarios en **Settings → Secrets and variables → Actions**:
+
+| Secreto | Valor |
+|---|---|
+| `PLESK_HOST` | servidor Plesk (IP o nombre) |
+| `PLESK_USER` | usuario SSH del dominio |
+| `PLESK_SSH_KEY` | clave privada SSH (la pública debe estar en `~/.ssh/authorized_keys` del servidor) |
+| `PLESK_PORT` | puerto SSH (opcional, 22 por defecto) |
+| `PLESK_TARGET_DIR` | carpeta raíz del sitio, p. ej. `/var/www/vhosts/malaga-iam.website/httpdocs` |
 
 ---
 
