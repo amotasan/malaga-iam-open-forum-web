@@ -18,12 +18,9 @@ const LINKEDIN_URL = "";      // página de LinkedIn del foro
 
 ## Publicar en https://malaga-iam.website
 
-Cada push a `main` que cambie `index.html` o `img/` copia la web al servidor Plesk con GitHub Actions (`.github/workflows/deploy.yml`). También se puede lanzar a mano desde la pestaña **Actions → Deploy a Plesk → Run workflow**.
+La web se despliega con la extensión **Git de Plesk**: el servidor descarga este repositorio público en `httpdocs`. Un webhook de GitHub avisa a Plesk en cada push a `main`.
 
-Secretos necesarios en **Settings → Secrets and variables → Actions**:
-
-| Secreto | Valor |
-|---|---|
+---|---|
 | `PLESK_HOST` | servidor Plesk (IP o nombre) |
 | `PLESK_USER` | usuario SSH del dominio |
 | `PLESK_SSH_KEY` | clave privada SSH (recomendado; la pública debe estar en `~/.ssh/authorized_keys` del servidor) |
