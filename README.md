@@ -4,12 +4,14 @@ Web del **Málaga IAM Open Forum**, foro abierto de movilidad aérea innovadora 
 
 ## Estructura
 
-- `index.html`: página completa (HTML, CSS y JS en un solo archivo).
+- `index.html`: página de inicio (landing).
+- `blog/index.html`: blog del foro, en página aparte (`https://malaga-iam.website/blog/`). Cada entrada es un `<article class="entry">` con su propio `id`, que sirve como enlace directo (`/blog/#id`).
+- `css/site.css`: estilos compartidos por las dos páginas.
 - `img/`: logos e imágenes.
 
 ## Enlaces pendientes
 
-Al final de `index.html`, rellena:
+Al final de `index.html` (y `LINKEDIN_URL` también al final de `blog/index.html`), rellena:
 
 ```js
 const INSCRIPCION_URL = "";   // formulario de inscripción
