@@ -7,6 +7,7 @@ Web del **Málaga IAM Open Forum**, foro abierto de movilidad aérea innovadora 
 - `index.html`: página de inicio (landing).
 - `blog/index.html`: blog del foro, en página aparte (`https://malaga-iam.website/blog/`). Cada entrada es un `<article class="entry">` con su propio `id`, que sirve como enlace directo (`/blog/#id`).
 - `css/site.css`: estilos compartidos por las dos páginas.
+- `docs/`: documentos descargables (folleto de VERTI-GO en PDF, ES y EN).
 - `img/`: logos e imágenes.
 
 ## Enlaces pendientes
