@@ -254,13 +254,11 @@
             <div class="row"><small>Fecha</small><span class="num">Jueves, 22 de octubre de 2026</span></div>
             <div class="row"><small>Hora</small><span class="num">16:30 h</span></div>
             <div class="row"><small>Lugar</small><span>Edificio Green Ray · Link by UMA-ATech<br>Avda. Louis Pasteur, 47 · Campus de Teatinos · 29010 Málaga</span></div>
-            <div class="row"><small>Entrada</small><span>Libre, previa inscripción</span></div>
+            <div class="row"><small>Entrada</small><span>Libre hasta completar aforo · sin inscripción previa</span></div>
             <div class="btns">
-              <a class="btn btn-sun" id="btn-inscripcion" href="#evento-1">Inscribirme</a>
-              <a class="btn btn-line" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=M%C3%A1laga%20IAM%20Open%20Forum&amp;dates=20261022T143000Z/20261022T170000Z&amp;details=Primer%20M%C3%A1laga%20IAM%20Open%20Forum%20y%20presentaci%C3%B3n%20p%C3%BAblica%20del%20proyecto%20VERTI-GO.&amp;location=Edificio%20Green%20Ray%2C%20Avda.%20Louis%20Pasteur%2047%2C%20Campus%20de%20Teatinos%2C%2029010%20M%C3%A1laga">Añadir al calendario</a>
+              <a class="btn btn-sun" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=M%C3%A1laga%20IAM%20Open%20Forum&amp;dates=20261022T143000Z/20261022T170000Z&amp;details=Primer%20M%C3%A1laga%20IAM%20Open%20Forum%20y%20presentaci%C3%B3n%20p%C3%BAblica%20del%20proyecto%20VERTI-GO.&amp;location=Edificio%20Green%20Ray%2C%20Avda.%20Louis%20Pasteur%2047%2C%20Campus%20de%20Teatinos%2C%2029010%20M%C3%A1laga">Añadir al calendario</a>
               <a class="btn btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Edificio%20Green%20Ray%2C%20Avda.%20Louis%20Pasteur%2047%2C%2029010%20M%C3%A1laga">Cómo llegar</a>
             </div>
-            <p class="note" id="insc-note" hidden>El enlace de inscripción se publicará muy pronto en esta página y en LinkedIn.</p>
           </div>
           <div class="box">
             <h3>Acoge</h3>
@@ -303,7 +301,6 @@
 
 <script>
 /* ---- Enlaces pendientes: rellenar cuando estén disponibles ---- */
-const INSCRIPCION_URL = "";   // p. ej. formulario de inscripción
 const LINKEDIN_URL = "";      // página de LinkedIn del foro
 
 (function(){
@@ -311,11 +308,6 @@ const LINKEDIN_URL = "";      // página de LinkedIn del foro
   const btn=document.getElementById('menu-btn'),nav=document.getElementById('nav');
   btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
   nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
-
-  // inscripción
-  const ins=document.getElementById('btn-inscripcion');
-  if(INSCRIPCION_URL){ins.href=INSCRIPCION_URL;ins.target='_blank';ins.rel='noopener'}
-  else{ins.setAttribute('aria-disabled','true');ins.textContent='Inscripción próximamente';ins.addEventListener('click',e=>e.preventDefault());document.getElementById('insc-note').hidden=false}
 
   // linkedin
   ['btn-linkedin','btn-linkedin-2'].forEach(id=>{const a=document.getElementById(id);if(!a)return;

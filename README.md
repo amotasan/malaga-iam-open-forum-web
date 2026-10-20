@@ -11,10 +11,9 @@ Web del **Málaga IAM Open Forum**, foro abierto de movilidad aérea innovadora 
 
 ## Enlaces pendientes
 
-Al final de `index.html` (y `LINKEDIN_URL` también al final de `blog/index.html`), rellena:
+Al final de `index.html` y de `blog/index.html`, rellena:
 
 ```js
-const INSCRIPCION_URL = "";   // formulario de inscripción
 const LINKEDIN_URL = "";      // página de LinkedIn del foro
 ```
 
