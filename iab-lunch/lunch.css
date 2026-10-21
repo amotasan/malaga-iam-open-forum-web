@@ -56,3 +56,8 @@ legend .eyebrow{display:block;margin-bottom:2px}
 .lunch-totals td{padding:10px 4px;border-bottom:1px solid var(--line);font-size:1.05rem}
 .lunch-totals td.num{text-align:right;font-weight:900;font-size:1.3rem;color:var(--heading);width:4ch}
 .lunch-copy{width:100%;font:400 .92rem/1.5 ui-monospace,Menlo,Consolas,monospace;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px}
+.lunch-reset{border-top:1px solid var(--line);padding-top:14px;font-size:.9rem;color:var(--muted)}
+.lunch-reset summary{cursor:pointer;font-weight:700}
+.lunch-reset form{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-top:12px}
+.lunch-reset label{display:grid;gap:4px}
+.lunch-reset input{font:400 1rem var(--font-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}

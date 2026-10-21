@@ -1,7 +1,18 @@
 <?php
 require __DIR__ . '/config.php';
 lunch_headers();
-header('Refresh: 30');
+
+$resetMsg = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset'])) {
+    if (password_verify((string) ($_POST['pw'] ?? ''), RESET_HASH)) {
+        lunch_reset();
+        header('Location: totales.php?vaciado=1', true, 303);
+        exit;
+    }
+    $resetMsg = 'Contraseña incorrecta: no se ha borrado nada.';
+}
+if (isset($_GET['vaciado'])) { $resetMsg = 'Respuestas borradas: los totales vuelven a 0.'; }
+if ($_SERVER['REQUEST_METHOD'] === 'GET') { header('Refresh: 30; url=totales.php'); }
 
 $t = lunch_totals();
 
@@ -22,6 +33,7 @@ lunch_head('Totales · comida IAB VERTI-GO');
   </section>
 
   <div class="wrap lunch-body">
+    <?php if ($resetMsg): ?><p class="lunch-alert" role="status"><?= h($resetMsg) ?></p><?php endif; ?>
     <div class="lunch-card">
       <p class="lunch-people"><b class="num"><?= (int) $t['people'] ?></b> personas han elegido</p>
 
@@ -42,6 +54,14 @@ lunch_head('Totales · comida IAB VERTI-GO');
       <h2 class="lunch-h">Texto para el restaurante</h2>
       <textarea class="lunch-copy" id="copy" rows="13" readonly><?= h($text) ?></textarea>
       <button class="btn btn-line" type="button" onclick="navigator.clipboard.writeText(document.getElementById('copy').value).then(()=>{this.textContent='Copiado ✓'})">Copiar</button>
+
+      <details class="lunch-reset">
+        <summary>Vaciar respuestas</summary>
+        <form method="post" action="totales.php" onsubmit="return confirm('¿Borrar todas las respuestas? Los totales volverán a 0.')">
+          <label>Contraseña <input type="password" name="pw" autocomplete="current-password" required></label>
+          <button class="btn btn-line" type="submit" name="reset" value="1">Borrar todo</button>
+        </form>
+      </details>
     </div>
   </div>
 </main>

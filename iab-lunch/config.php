@@ -31,6 +31,10 @@ const MAINS = [
 const INCLUDED = ['Postre o café · agua, cerveza o refresco', 'Dessert or coffee · water, beer or soft drink'];
 
 const MAX_ENTRIES = 300;
+
+// Hash de la contraseña para vaciar las respuestas desde totales.php (la contraseña no está en el repositorio).
+// Para cambiarla: php -r "echo password_hash('nueva', PASSWORD_DEFAULT);"
+const RESET_HASH = '$2y$10$JwS89Thajpdn6uGhCBYOS.wBq/9WM1UTj3eVLw7UrSarYZemTG0X.';
 const SALT = 'verti-go-iab-2026-lunch';
 
 date_default_timezone_set('Europe/Madrid');
@@ -100,6 +104,18 @@ function lunch_key(string $first, string $last): string {
     $s = strtr($s, ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','ü'=>'u','ñ'=>'n','à'=>'a','è'=>'e','ò'=>'o','ç'=>'c']);
     $s = preg_replace('/\s+/', ' ', $s);
     return substr(hash('sha256', SALT . '|' . $s), 0, 24);
+}
+
+/** Vacía todas las respuestas. */
+function lunch_reset(): void {
+    $fh = fopen(lunch_data_file(), 'c+');
+    if (!$fh || !flock($fh, LOCK_EX)) { throw new RuntimeException('No se pudo abrir el fichero de respuestas.'); }
+    ftruncate($fh, 0);
+    rewind($fh);
+    fwrite($fh, GUARD . '{}');
+    fflush($fh);
+    flock($fh, LOCK_UN);
+    fclose($fh);
 }
 
 /** Totales por plato. */
