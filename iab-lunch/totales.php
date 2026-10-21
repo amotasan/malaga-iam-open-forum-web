@@ -4,12 +4,9 @@ lunch_headers();
 
 $resetMsg = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reset'])) {
-    if (password_verify((string) ($_POST['pw'] ?? ''), RESET_HASH)) {
-        lunch_reset();
-        header('Location: totales.php?vaciado=1', true, 303);
-        exit;
-    }
-    $resetMsg = 'Contraseña incorrecta: no se ha borrado nada.';
+    lunch_reset();
+    header('Location: totales.php?vaciado=1', true, 303);
+    exit;
 }
 if (isset($_GET['vaciado'])) { $resetMsg = 'Respuestas borradas: los totales vuelven a 0.'; }
 if ($_SERVER['REQUEST_METHOD'] === 'GET') { header('Refresh: 30; url=totales.php'); }
@@ -58,7 +55,6 @@ lunch_head('Totales · comida IAB VERTI-GO');
       <details class="lunch-reset">
         <summary>Vaciar respuestas</summary>
         <form method="post" action="totales.php" onsubmit="return confirm('¿Borrar todas las respuestas? Los totales volverán a 0.')">
-          <label>Contraseña <input type="password" name="pw" autocomplete="current-password" required></label>
           <button class="btn btn-line" type="submit" name="reset" value="1">Borrar todo</button>
         </form>
       </details>

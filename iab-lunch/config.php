@@ -32,9 +32,6 @@ const INCLUDED = ['Postre o café · agua, cerveza o refresco', 'Dessert or coff
 
 const MAX_ENTRIES = 300;
 
-// Hash de la contraseña para vaciar las respuestas desde totales.php (la contraseña no está en el repositorio).
-// Para cambiarla: php -r "echo password_hash('nueva', PASSWORD_DEFAULT);"
-const RESET_HASH = '$2y$10$JwS89Thajpdn6uGhCBYOS.wBq/9WM1UTj3eVLw7UrSarYZemTG0X.';
 const SALT = 'verti-go-iab-2026-lunch';
 
 date_default_timezone_set('Europe/Madrid');
