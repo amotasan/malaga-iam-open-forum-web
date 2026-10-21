@@ -18,6 +18,13 @@ Al final de `index.html` y de `blog/index.html`, rellena:
 const LINKEDIN_URL = "";      // página de LinkedIn del foro
 ```
 
+## Elección de menú del IAB (página oculta)
+
+- `iab-lunch/`: formulario para que los asistentes al Institutional Advisory Board de VERTI-GO elijan primer y segundo plato. No está enlazado desde la web y lleva `noindex`; se accede con el QR del PDF del menú: `https://malaga-iam.website/iab-lunch/`.
+- Totales por plato para el restaurante: `https://malaga-iam.website/iab-lunch/totales.php`.
+- Platos, fecha y hora de cierre (`CLOSES_AT`) en `iab-lunch/config.php`.
+- Solo se guardan los totales: el nombre se convierte en una huella para evitar votos repetidos. Las respuestas se guardan fuera de `httpdocs` (`/var/www/vhosts/<dominio>/iab-lunch-data/`) y nunca en este repositorio.
+
 ## Publicar en https://malaga-iam.website
 
 La web se despliega con la extensión **Git de Plesk**: el servidor descarga este repositorio público en `httpdocs`. Un webhook de GitHub avisa a Plesk en cada push a `main`.
