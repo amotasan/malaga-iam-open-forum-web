@@ -9,33 +9,21 @@ Web del **Málaga IAM Open Forum**, foro abierto de movilidad aérea innovadora 
 - `css/site.css`: estilos compartidos por las dos páginas.
 - `docs/`: documentos descargables (folleto de VERTI-GO en PDF, ES y EN).
 - `img/`: logos e imágenes.
+- `js/main.js`: script común (menú móvil, enlaces a LinkedIn, animación del logo). Sin scripts en línea, para poder usar una CSP estricta.
+- `.htaccess`: cabeceras de seguridad (HSTS, CSP, X-Frame-Options…) y bloqueo de archivos ocultos y de documentación.
 
-## Enlaces pendientes
+## Enlace a LinkedIn
 
-Al final de `index.html` y de `blog/index.html`, rellena:
+La URL de la página de LinkedIn está en `js/main.js` (`LINKEDIN_URL`), compartida por la portada y el blog.
 
-```js
-const LINKEDIN_URL = "";      // página de LinkedIn del foro
-```
+## Seguridad
 
-## Elección de menú del IAB (página oculta)
-
-- `iab-lunch/`: formulario para que los asistentes al Institutional Advisory Board de VERTI-GO elijan primer y segundo plato. No está enlazado desde la web y lleva `noindex`; se accede con el QR del PDF del menú: `https://malaga-iam.website/iab-lunch/`.
-- Totales por plato para el restaurante: `https://malaga-iam.website/iab-lunch/totales.php`.
-- Platos, fecha y hora de cierre (`CLOSES_AT`) en `iab-lunch/config.php`.
-- Solo se guardan los totales: el nombre se convierte en una huella para evitar votos repetidos. Las respuestas se guardan fuera de `httpdocs` (`/var/www/vhosts/<dominio>/iab-lunch-data/`) y nunca en este repositorio.
+La política de contenidos (CSP) del `.htaccess` solo permite scripts propios (`js/`) y Google Fonts. Si se añade un script en línea o un recurso de otro dominio (vídeo, mapa, analítica…), hay que añadirlo también a la CSP o no se cargará.
 
 ## Publicar en https://malaga-iam.website
 
 La web se despliega con la extensión **Git de Plesk**: el servidor descarga este repositorio público en `httpdocs`. Un webhook de GitHub avisa a Plesk en cada push a `main`.
 
----|---|
-| `PLESK_HOST` | servidor Plesk (IP o nombre) |
-| `PLESK_USER` | usuario SSH del dominio |
-| `PLESK_SSH_KEY` | clave privada SSH (recomendado; la pública debe estar en `~/.ssh/authorized_keys` del servidor) |
-| `PLESK_PASSWORD` | contraseña SSH, solo si no se usa clave |
-| `PLESK_PORT` | puerto SSH (opcional, 22 por defecto) |
-| `PLESK_TARGET_DIR` | carpeta raíz del sitio, p. ej. `/var/www/vhosts/malaga-iam.website/httpdocs` |
 
 ---
 

@@ -1,0 +1,28 @@
+# Málaga IAM Open Forum · reglas de seguridad para Apache (Plesk)
+
+# --- Cabeceras de seguridad ---------------------------------------------------
+<IfModule mod_headers.c>
+  # Forzar HTTPS en el navegador durante 1 año (solo el dominio principal)
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # No adivinar tipos de archivo
+  Header always set X-Content-Type-Options "nosniff"
+  # No permitir que otras webs metan esta página en un marco (clickjacking)
+  Header always set X-Frame-Options "DENY"
+  # Al salir hacia otra web, enviar solo el dominio
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Desactivar funciones del navegador que la web no usa
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  # Qué puede cargar la página: solo recursos propios y Google Fonts
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  # No anunciar la plataforma del servidor
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+</IfModule>
+
+# --- Archivos que no deben servirse --------------------------------------------
+# Archivos y carpetas ocultos (.git, .github, .env…), salvo /.well-known (Let's Encrypt)
+RedirectMatch 404 /\.(?!well-known/)
+# Documentación del repositorio, copias y archivos de configuración
+<FilesMatch "(?i)(^README|\.(md|bak|old|orig|swp|sql|log|ini|ya?ml|lock|sh)$)">
+  Require all denied
+</FilesMatch>

@@ -225,20 +225,7 @@
   </div>
 </footer>
 
-<script>
-/* ---- Enlaces pendientes: mismo valor que en index.html ---- */
-const LINKEDIN_URL = "https://www.linkedin.com/company/malaga-iam-open-forum/";      // página de LinkedIn del foro
-
-(function(){
-  // menú móvil
-  const btn=document.getElementById('menu-btn'),nav=document.getElementById('nav');
-  btn.addEventListener('click',()=>{const o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
-  nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
-  // linkedin
-  const a=document.getElementById('btn-linkedin');
-  if(a){if(LINKEDIN_URL){a.href=LINKEDIN_URL;a.target='_blank';a.rel='noopener'}else{a.hidden=true}}
-})();
-</script>
+<script src="../js/main.js"></script>
 
 </body>
 </html>
