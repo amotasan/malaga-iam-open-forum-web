@@ -244,6 +244,7 @@ section.alt .box{background:var(--bg)}
 .entry ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
 .back{display:inline-flex;gap:6px;align-items:center;font-weight:700;text-decoration:none}
 .nav a[aria-current="page"]{background:var(--surface-2);color:var(--heading)}
+.nav a.cta[aria-current="page"]{background:var(--sun);color:#1D3A26}
 
 /* ---------- footer ---------- */
 footer{background:var(--hero-bg-2);color:#DCEBDF;padding-block:48px 32px}
