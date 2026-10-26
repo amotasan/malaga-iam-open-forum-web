@@ -175,6 +175,11 @@ section.alt .stage::before{background:var(--surface)}
   .stage{padding-top:0}
   .stage::before{left:-32px}
 }
+/* financiación UE: solo cubre el proyecto VERTI-GO (va en su bloque, bajo la hoja de ruta) */
+.funding{display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:48px;padding-top:24px}
+.funding .logos{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.funding .logos img{height:40px;width:auto;display:block}
+.funding p{font-size:.85rem;color:var(--muted);max-width:70ch;flex:1;min-width:240px}
 .partners{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .partners li{list-style:none;font-size:.9rem;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--surface-2);color:var(--heading)}
 .partners{padding:0;margin-bottom:0}
@@ -249,10 +254,7 @@ footer .wrap{display:grid;gap:28px}
 .foot-brand .chip img{height:48px;width:auto;display:block}
 footer a{color:#fff}
 .foot-links{display:grid;gap:6px;font-size:.95rem}
-.funding{display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15);padding-top:24px}
-.funding .logos{display:flex;gap:10px;align-items:center;background:#fff;border-radius:10px;padding:8px 12px}
-.funding .logos img{height:40px;width:auto;display:block}
-.funding p{font-size:.85rem;max-width:70ch;flex:1;min-width:240px}
+.copy{border-top:1px solid rgba(255,255,255,.15);padding-top:20px}
 .copy{font-size:.8rem;opacity:.7}
 @media (max-width:560px){.next-card{grid-template-columns:1fr}.date-tile{display:flex;gap:10px;align-items:baseline;justify-content:center;width:max-content}.date-tile .d{font-size:1.8rem}}
 .entry figure .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
