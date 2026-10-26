@@ -6,7 +6,8 @@ Web del **Málaga IAM Open Forum**, foro abierto de movilidad aérea innovadora 
 
 - `index.html`: página de inicio (landing).
 - `blog/index.html`: blog del foro, en página aparte (`https://malaga-iam.website/blog/`). Cada entrada es un `<article class="entry">` con su propio `id`, que sirve como enlace directo (`/blog/#id`).
-- `css/site.css`: estilos compartidos por las dos páginas.
+- `actividades/index.html`: página de actividades (`https://malaga-iam.website/actividades/`), con el programa completo y la ficha de cada encuentro. Cada encuentro es un `<article class="act-detail">` con su `id` (`/actividades/#evento-1`). En la portada solo queda un resumen de cada uno (`.act-card`) que enlaza aquí.
+- `css/site.css`: estilos compartidos por todas las páginas.
 - `docs/`: documentos descargables (folleto de VERTI-GO en PDF, ES y EN).
 - `img/`: logos e imágenes.
 - `js/main.js`: script común (menú móvil, enlaces a LinkedIn, animación del logo). Sin scripts en línea, para poder usar una CSP estricta.

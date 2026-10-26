@@ -206,6 +206,21 @@ section.alt .box{background:var(--bg)}
 .host{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .host img{height:56px;width:auto;background:#fff;border-radius:8px;padding:4px}
 
+/* activity summary cards (portada) */
+.acts{display:grid;gap:20px}
+.act-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,28px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(16px,3vw,32px);align-items:start}
+.act-card .body{display:grid;gap:10px;min-width:0}
+.act-card h3{font-size:1.4rem}
+.act-card p{color:var(--muted);max-width:66ch}
+.status{display:inline-block;margin-left:8px;font-size:.7rem;letter-spacing:.14em;background:var(--surface-2);color:var(--heading);border-radius:4px;padding:1px 7px;vertical-align:1px}
+@media (max-width:560px){.act-card{grid-template-columns:1fr}}
+
+/* ---------- actividades (página /actividades/) ---------- */
+.acts-full{display:grid;gap:clamp(28px,4vw,44px);padding-bottom:clamp(48px,7vw,88px)}
+.act-detail{scroll-margin-top:90px}
+.act-title{font-size:clamp(1.4rem,2.6vw,1.8rem);margin:6px 0 20px}
+.acts-full .soon{margin-top:0}
+
 /* ---------- blog (página /blog/) ---------- */
 .page-head{padding-block:clamp(40px,6vw,72px) clamp(20px,3vw,32px);display:grid;gap:10px}
 .page-head h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:900;color:var(--heading);letter-spacing:-.01em}
