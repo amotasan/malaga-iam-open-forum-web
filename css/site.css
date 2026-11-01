@@ -60,6 +60,10 @@ p{margin:0}
 .nav a{font-size:.88rem;font-weight:700;color:var(--fg);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
 .nav a:hover{background:var(--surface-2);color:var(--heading)}
 .nav a.cta{background:var(--sun);color:#1D3A26}
+.nav a.verti{background:var(--brand);color:#fff}
+.nav a.verti:hover{background:var(--brand-deep);color:#fff}
+.nav a.airlink{background:#1C6FA1;color:#fff}
+.nav a.airlink:hover{background:#15577F;color:#fff}
 .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:6px 12px;font:700 .9rem var(--font-body);cursor:pointer}
 @media (max-width:900px){
   .menu-btn{display:block}
@@ -143,6 +147,7 @@ section.alt .fact{background:var(--surface)}
 .craft{background:var(--surface-2);border-radius:var(--radius);overflow:hidden;display:grid}
 .craft img{width:100%;display:block;aspect-ratio:770/310;object-fit:cover}
 .craft.laila img{aspect-ratio:680/240}
+.craft.eiger img{aspect-ratio:1488/530}
 .craft .cap{padding:16px 18px;display:grid;gap:10px}
 .spec{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:.93rem;margin:0}
 .spec dt{color:var(--muted)}
@@ -314,6 +319,8 @@ section.alt .box{background:var(--bg)}
 .back{display:inline-flex;gap:6px;align-items:center;font-weight:700;text-decoration:none}
 .nav a[aria-current="page"]{background:var(--surface-2);color:var(--heading)}
 .nav a.cta[aria-current="page"]{background:var(--sun);color:#1D3A26}
+.nav a.airlink[aria-current="page"]{background:#15577F;color:#fff}
+.nav a.verti[aria-current="page"]{background:var(--brand-deep);color:#fff}
 
 /* ---------- footer ---------- */
 footer{background:var(--hero-bg-2);color:#DCEBDF;padding-block:48px 32px}
