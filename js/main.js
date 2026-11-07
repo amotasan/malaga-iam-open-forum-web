@@ -16,6 +16,13 @@ const LINKEDIN_URL = "https://www.linkedin.com/company/malaga-iam-open-forum/";
   ['btn-linkedin','btn-linkedin-2'].forEach(id=>{const a=document.getElementById(id);if(!a)return;
     if(LINKEDIN_URL){a.href=LINKEDIN_URL;a.target='_blank';a.rel='noopener'}else if(id==='btn-linkedin'){a.hidden=true}});
 
+  // blog: si el enlace apunta a una entrada dentro de un mes plegado, abre ese mes y baja hasta ella
+  const openHash=()=>{if(!location.hash)return;let el;try{el=document.querySelector(location.hash)}catch(e){return}
+    const d=el&&el.closest('details.month');if(!d)return;d.open=true;
+    const go=()=>el.scrollIntoView({behavior:'instant'});
+    requestAnimationFrame(go);if(document.readyState!=='complete')window.addEventListener('load',go,{once:true})};
+  openHash();window.addEventListener('hashchange',openHash);
+
   // trayectoria punteada del logo en la portada (despegue vertical + giro)
   const g=document.getElementById('path-dots');
   if(g){
